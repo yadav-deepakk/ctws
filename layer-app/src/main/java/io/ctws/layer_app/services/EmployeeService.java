@@ -18,7 +18,8 @@ public class EmployeeService {
 	}
 
 	public Employee getEmplyeeById(long id) {
-		return (Employee) this.empList.stream().filter(emp -> emp.getId() == id);
+		List<Employee> filter = this.empList.stream().filter(emp -> emp.getId() == id).toList();
+		return filter.getFirst();
 	}
 
 }
