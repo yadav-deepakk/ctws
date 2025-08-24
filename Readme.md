@@ -11,6 +11,20 @@
 ---
 
 ## Stripe Demo Project ##
-StripeProviderController - 
-	webhook - end point to accept events/notifications of the payment from stripe-api. 
+Stripe CLI commands 
+```bash
+strip login
+```
+```bash
+strip listen
+```
+
+```bash
+strip listen forward-to localhost:4242/webhook
+```
+
+StripeProviderController
+
+webhook: end point to accept events/notifications of the payment from stripe-api. 
+
 ---
