@@ -1,5 +1,5 @@
 ## Layered application ##
-# @SpringBootApplication Annotation has below annotations #
+### @SpringBootApplication Annotation has below annotations ###
 1. @EnableAutoConfiguration:
 	This feature lets spring automatically look for the beans in class path and register them. 
 2. @Configuration:
@@ -19,7 +19,7 @@ There are several layers in a spring boot application to keep project loosely co
 ---
 
 ## Stripe Demo Project ##
-# Stripe CLI commands #
+### Stripe CLI commands ###
 1. for logging into the CLI dashboard use below command. 
 ```bash
 strip login
