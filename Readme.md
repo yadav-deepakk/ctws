@@ -9,13 +9,17 @@
 	This is used to define packages where to look for beans 
 
 There are several layers in a spring boot application to keep project loosely coupled. 
-1. DTOs - used to create pojo classes to exchanage the data with upstream and downstream. 
+1. DTOs/Pojo - used to create pojo classes to exchanage the data with upstream and downstream. 
 2. Controllers - Controller is used to write all exposed end points for communication over http. 
 3. Exceptions - has global exceptions that might occur during request processing. 
 3. Service - Service layer will have all application/bussiness/transactions logic code 
 4. DAOs/Repository - interfaces that extends the crudRepo/JpaRepository to perform db operations. 
 5. Entities - classes that creates a mapping into database. 
-6. Configurations - this will have all classes with @configuration which has all beans 
+6. Configurations - this will have all classes with @configuration which has all beans
+7. Constants - Some constants/enums that are not environment specific and needed to hardCode. 
+8. Utils - has utility classes, eg. any type of conversion.
+9. Security - spring security related code.
+10. Http: making calls to external/internal services.
 ---
 
 ## Stripe Demo Project ##
