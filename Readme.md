@@ -26,17 +26,17 @@ There are several layers in a spring boot application to keep project loosely co
 ### Stripe CLI commands ###
 1. for logging into the CLI dashboard use below command. 
 ```bash
-strip login
+stripe login
 ```
 
 2. to start listening to the server events use blelow command. 
 ```bash
-strip listen
+stripe listen
 ```
 
 3. to enable port forwarding and sending event to local enpoint created in stripecontroller use below command.
 ```bash
-strip listen forward-to localhost:4242/webhook
+stripe listen forward-to localhost:4242/webhook
 ```
 
 StripeProviderController
