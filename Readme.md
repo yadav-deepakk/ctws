@@ -22,6 +22,15 @@ There are several layers in a spring boot application to keep project loosely co
 10. Http: making calls to external/internal services.
 ---
 
+### Common Response Status Code received from server ###
+1. 1xx - Informational
+2. 2xx - Success
+3. 3xx - Redirectional
+4. 4xx - Client error
+5. 5xx - Server Error
+
+---
+
 ## Stripe Demo Project ##
 ### Stripe CLI commands ###
 1. for logging into the CLI dashboard use below command. 
