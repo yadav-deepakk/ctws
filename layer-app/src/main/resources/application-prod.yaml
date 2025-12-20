@@ -1,3 +1,0 @@
-env:
-  envvar: "application-prod"
-  tempvar:  "prod-env-var"

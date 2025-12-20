@@ -1,3 +1,0 @@
-env:
-  envvar: "application-dev"
-  tempvar:  "dev-env-var"

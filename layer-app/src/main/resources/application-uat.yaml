@@ -1,3 +1,0 @@
-env:
-  envvar: "application-prod"
-  tempvar:  "uat-env-var"

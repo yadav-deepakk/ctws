@@ -1,3 +1,0 @@
-env:
-  envvar: "application-qa"
-  tempvar:  "qa-env-var"
