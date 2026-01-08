@@ -1,27 +1,41 @@
-### Diagram
----
-### Validation
----
-### Core-Processing
----
-### Stripe-Provider
-- `service that will integrate with stripe apis and provide payment functionalities`
-    - create payment (one time payment)
-    - get payment details
-    - expire payment
+## Diagrams
 
-| Method | endpoint                  |  RequestBody           |RequestParams        |
+<caption>
+Payment Integration System Block Diagram
+<img alt="Payment Integration System" src = "./res/md-res/images/payment-integration-system.png"/>
+</caption>
+
+<caption> Stripe PSP Sequence Diagram
+<img alt="Squence Diagram" src = "./res/md-res/images/stripe-psp-sequence.png"/>
+</caption>
+
+## Microservice Architecture
+<details>
+    <summary>Validation Service</summary>
+</details>
+
+<details>
+    <summary>Core-Processing Service</summary>
+</details>
+
+<details>
+    <summary>Stripe-Provider Service</summary>
+<br />
+service that will integrate with stripe apis and provide payment functionalities
+
+| Method | endpoint                  |  RequestBody           |  RequestParams      |
 |--------|---------------------------|------------------------|---------------------|
-| POST   | /api/v1/payment           |  createPaymentReq      |     nil             |
-| GET    | /api/v1/payment           |  nil                   |providerReference    |
-| POST   | /api/v1/payment/expire    |  nil                   |providerReference    |
+| POST   | /api/v1/payment           |CreatePaymentRequest    |nil                  |
+| GET    | /api/v1/payment           |nil                     |ref                  |
+| POST   | /api/v1/payment/expire    |nil                     |ref                  |
 
-----
-### STRIPE
-[STRIPE API URL](https://docs.stripe.com/api)
-`base url` - `https://api.stripe.com/`
-`authentication` - `API KEY`
+</details>
 
-```bash
-curl https://api.stripe.com/v1/charges -u STRIPE_API_KEY:
-```
+<details>
+    <summary>mysql database</summary>
+</details>
+
+## Useful Links:
+- [Stripe Checkout Session](https://docs.stripe.com/payments/checkout/how-checkout-works)
+- [Stripe APIs](https://docs.stripe.com/api)
+
