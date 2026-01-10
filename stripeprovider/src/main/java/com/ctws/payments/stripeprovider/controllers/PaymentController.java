@@ -1,5 +1,6 @@
 package com.ctws.payments.stripeprovider.controllers;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -7,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ctws.payments.stripeprovider.dto.request.CreatePaymentRequest;
+import com.ctws.payments.stripeprovider.dtos.PaymentRequest;
+import com.ctws.payments.stripeprovider.dtos.PaymentResponse;
+import com.ctws.payments.stripeprovider.dtos.StripePaymentResponse;
 import com.ctws.payments.stripeprovider.services.interfaces.PaymentService;
 
 import lombok.RequiredArgsConstructor;
@@ -20,12 +23,14 @@ import lombok.extern.slf4j.Slf4j;
 public class PaymentController {
 
   private final PaymentService paymentService;
+  private final ModelMapper mapper;
 
   @PostMapping
-  public String createStripePayment(@RequestBody CreatePaymentRequest request) {
+  public String createStripePayment(@RequestBody PaymentRequest request) {
     log.info("POST /api/v1/payment || PaymentController|createStripePayment: {}", request.toString());
-    String createResponse = paymentService.createPayment("create Payment response");
-    log.info("PaymentService createPaymentResponse: {}", createResponse);
+    StripePaymentResponse response = paymentService.createPayment(request);
+    PaymentResponse res = mapper.map(response, PaymentResponse.class);
+    log.info("PaymentService PaymentResponse: {}", res);
     return "PaymentCreated";
   }
 
