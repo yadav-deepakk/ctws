@@ -2,11 +2,11 @@
 
 <caption>
 Payment Integration System Block Diagram
-<img alt="Payment Integration System" src = "./res/md-res/images/payment-integration-system.png"/>
+<img alt="Payment Integration System" src = "./resources/md-res/images/payment-integration-system.png"/>
 </caption>
 
 <caption> Stripe PSP Sequence Diagram
-<img alt="Squence Diagram" src = "./res/md-res/images/stripe-psp-sequence.png"/>
+<img alt="Squence Diagram" src = "./resources/md-res/images/stripe-psp-sequence.png"/>
 </caption>
 
 ### Flow Explaination
