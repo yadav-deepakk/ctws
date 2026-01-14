@@ -1,8 +1,22 @@
 ### Create Stripe Checkout Session (Basic Auth)
 
 POST https://api.stripe.com/v1/checkout/sessions HTTP/1.1
-Authorization: Basic {{STRIPE_BASIC_AUTH}}
+Authorization: Basic {{base64(STRIPE_API_KEY + ":")}}
 Content-Type: application/x-www-form-urlencoded
 
-success_url=https://example.com/success&
-mode=payment
+success_url=https://example.com/success
+
+
+###
+
+GET &mode=payment HTTP/1.1
+
+
+###
+
+GET &line_items[0][price]=price_1MotwRLkdIwHu7ixYcPLm5uZ HTTP/1.1
+
+
+###
+
+GET &line_items[0][quantity]=2 HTTP/1.1
