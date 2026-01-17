@@ -1,10 +1,25 @@
-### Create Stripe Checkout Session (Basic Auth)
+### Create Stripe Checkout Session (BasicAuth)
 POST https://api.stripe.com/v1/checkout/sessions
-Authorization: Basic {{STRIPE_API_KEY}}
+Authorization: Basic {{ STRIPE_BASIC_AUTH }}
 Content-Type: application/x-www-form-urlencoded
 
 success_url=https://example.com/success
 &mode=payment
-&line_items[0][price]=price_1MotwRLkdIwHu7ixYcPLm5uZ
 &line_items[0][quantity]=2
+&line_items[0][price_data][unit_amount]=100
+&line_items[0][price_data][currency]=EUR
+&line_items[0][price_data][product_data][name]=candy
+
+### Retrieve a checkout session 
+GET https://api.stripe.com/v1/checkout/sessions/{{ EXPIRE_CHECKOUT_SESSION_ID }}
+Authorization: Basic {{ STRIPE_BASIC_AUTH }}
+
+### List all checkout session
+GET https://api.stripe.com/v1/checkout/sessions?limit=5
+Authorization: Basic {{ STRIPE_BASIC_AUTH }}
+
+### expire checkout session
+POST https://api.stripe.com/v1/checkout/sessions/{{ EXPIRE_CHECKOUT_SESSION_ID }}/expire
+Authorization: Basic {{ STRIPE_BASIC_AUTH }}
+
 
