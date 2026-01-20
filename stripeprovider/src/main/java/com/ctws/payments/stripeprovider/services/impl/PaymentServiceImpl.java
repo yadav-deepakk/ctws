@@ -3,6 +3,7 @@ package com.ctws.payments.stripeprovider.services.impl;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
+import org.springframework.web.util.UriBuilder;
 
 import com.ctws.payments.stripeprovider.dtos.PaymentRequest;
 import com.ctws.payments.stripeprovider.dtos.StripePaymentResponse;

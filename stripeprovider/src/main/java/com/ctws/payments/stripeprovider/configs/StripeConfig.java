@@ -7,7 +7,7 @@ import lombok.Getter;
 @Getter
 public class StripeConfig {
 
-  private @Value("${stripe.config.api.key") String StripeAPIKey;
+  private @Value("${stripe.config.api.key}") String StripeAPIKey;
   private @Value("${stripes.config.scheme}") String scheme;
   private @Value("${stripe.config.host}") String host;
   private @Value("${stripe.config.path.create-session}") String pathCreateSession;
