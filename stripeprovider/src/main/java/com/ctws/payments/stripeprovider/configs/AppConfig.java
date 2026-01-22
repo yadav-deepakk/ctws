@@ -5,17 +5,24 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestClient;
 
+import tools.jackson.databind.ObjectMapper;
+
 @Configuration
 public class AppConfig {
 
   @Bean
-  ModelMapper modelMapper() {
+  public ObjectMapper getObjectMapper() {
+    return new ObjectMapper();
+  }
+
+  @Bean
+  public ModelMapper getModelMapper() {
     return new ModelMapper();
   }
 
   @Bean
-  RestClient restClient(RestClient.Builder builder) {
-    return builder.build();
+  public RestClient restClient() {
+    return RestClient.create();
   }
 
 }

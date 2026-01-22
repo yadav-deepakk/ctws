@@ -11,9 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class PaymentResponse {
 
-  private String field1;
-  private String field2;
-  private String field3;
-  private String field4;
+  private String id;
+  private String url;
 
 }

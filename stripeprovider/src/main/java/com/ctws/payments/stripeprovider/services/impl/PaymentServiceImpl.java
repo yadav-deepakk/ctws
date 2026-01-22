@@ -1,12 +1,11 @@
 package com.ctws.payments.stripeprovider.services.impl;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
-import org.springframework.web.util.UriBuilder;
 
+import com.ctws.payments.stripeprovider.configs.StripeConfig;
 import com.ctws.payments.stripeprovider.dtos.PaymentRequest;
-import com.ctws.payments.stripeprovider.dtos.StripePaymentResponse;
+import com.ctws.payments.stripeprovider.dtos.StripeResponse;
 import com.ctws.payments.stripeprovider.services.impl.helper.CreatePaymentHelper;
 import com.ctws.payments.stripeprovider.services.interfaces.PaymentService;
 
@@ -18,13 +17,13 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class PaymentServiceImpl implements PaymentService {
 
-  private final CreatePaymentHelper createPaymentHelper;
-  private final ModelMapper mapper;
   private final RestClient restClient;
+  private final StripeConfig stripeConfig;
+  private final CreatePaymentHelper createPaymentHelper;
 
   @Override
-  public String getPaymentDetail(String req) {
-    log.info("PaymentServiceImpl | getPayment|request: {}", req);
+  public String getPaymentDetail(String providerRef) {
+    log.info("PaymentServiceImpl |getPayment |providerRef: {}", providerRef);
     return "Unimplemented method 'getPayment'";
   }
 
@@ -35,9 +34,16 @@ public class PaymentServiceImpl implements PaymentService {
   }
 
   @Override
-  public StripePaymentResponse createPayment(PaymentRequest req) {
-    log.info("PaymentServiceImpl | createPayment|request: {}", req);
-    return null;
+  public StripeResponse createPayment(PaymentRequest paymentRequest) {
+    log.info("PaymentServiceImpl | createPayment|request: {}", paymentRequest);
+    try {
+      StripeResponse checkoutSession = createPaymentHelper.createCheckoutSession(paymentRequest);
+      return checkoutSession;
+    } catch (Exception e) {
+      log.error("PaymentServiceImpl | createPayment|error: {}", e.getMessage(), e);
+      return null;
+    }
+
   }
 
 }

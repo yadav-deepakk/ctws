@@ -16,7 +16,8 @@ public class HttpService {
 
   private final RestClient restClient;
 
-  public String makeHttpCall(HttpReq request) {
+  public String makeHttpCall(ApiRequest request) {
+
     try {
 
       UriComponentsBuilder uriBuilder = UriComponentsBuilder.newInstance()
@@ -40,11 +41,7 @@ public class HttpService {
       return restClient
           .method(request.getMethod())
           .uri(uriBuilder.toUriString())
-          .headers(h -> {
-            if (request.getHeaders().isPresent()) {
-              request.getHeaders().get().forEach(h::add);
-            }
-          })
+          .headers(h -> h.addAll(request.getHeaders()))
           .body(request.getBody().isPresent() ? request.getBody() : "")
           .retrieve()
           .body(String.class);

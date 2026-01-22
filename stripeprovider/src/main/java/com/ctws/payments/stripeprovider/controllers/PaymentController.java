@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ctws.payments.stripeprovider.dtos.PaymentRequest;
 import com.ctws.payments.stripeprovider.dtos.PaymentResponse;
-import com.ctws.payments.stripeprovider.dtos.StripePaymentResponse;
+import com.ctws.payments.stripeprovider.dtos.StripeResponse;
 import com.ctws.payments.stripeprovider.services.interfaces.PaymentService;
 
 import lombok.RequiredArgsConstructor;
@@ -19,19 +19,20 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("api/v1/payment")
+@RequestMapping("api/v1/payments")
 public class PaymentController {
 
   private final PaymentService paymentService;
   private final ModelMapper mapper;
 
   @PostMapping
-  public String createStripePayment(@RequestBody PaymentRequest request) {
+  public PaymentResponse createStripePayment(@RequestBody PaymentRequest request) {
     log.info("POST /api/v1/payment || PaymentController|createStripePayment: {}", request.toString());
-    StripePaymentResponse response = paymentService.createPayment(request);
-    PaymentResponse res = mapper.map(response, PaymentResponse.class);
-    log.info("PaymentService PaymentResponse: {}", res);
-    return "PaymentCreated";
+    // StripeResponse response = paymentService.createPayment(request);
+    // PaymentResponse res = mapper.map(response, PaymentResponse.class);
+    // log.info("PaymentService PaymentResponse: {}", res);
+    PaymentResponse paymentResponse = PaymentResponse.builder().id("dummy-id").url("http://dummy-url.in/api").build();
+    return paymentResponse;
   }
 
   @GetMapping

@@ -11,12 +11,12 @@ import com.ctws.payments.stripeprovider.services.interfaces.PaymentService;
 public class PaymentControllerTest {
 
   @Autowired
-  private MockMvc mockMvc; 
+  private MockMvc mockMvc;
 
   @MockitoBean
-  private PaymentService paymentService; 
+  private PaymentService paymentService;
 
-  void shouldReturnPaymentResponse(){
-
+  void shouldReturnPaymentResponse() {
   }
+
 }

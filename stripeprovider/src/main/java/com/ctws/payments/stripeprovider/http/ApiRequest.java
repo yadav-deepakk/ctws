@@ -3,6 +3,7 @@ package com.ctws.payments.stripeprovider.http;
 import java.util.Map;
 import java.util.Optional;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 
 import lombok.AllArgsConstructor;
@@ -14,7 +15,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @Builder
-public class HttpReq {
+public class ApiRequest {
 
   private HttpMethod method;
   private String scheme;
@@ -22,7 +23,7 @@ public class HttpReq {
   private Optional<Integer> port;
   private Optional<String> path;
   private Optional<Map<String, String>> queryParams;
-  private Optional<Map<String, String>> headers;
+  private HttpHeaders headers;
   private Optional<Object> body;
 
 }

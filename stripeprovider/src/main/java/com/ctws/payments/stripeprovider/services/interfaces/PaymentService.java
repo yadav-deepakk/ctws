@@ -1,11 +1,11 @@
 package com.ctws.payments.stripeprovider.services.interfaces;
 
 import com.ctws.payments.stripeprovider.dtos.PaymentRequest;
-import com.ctws.payments.stripeprovider.dtos.StripePaymentResponse;
+import com.ctws.payments.stripeprovider.dtos.StripeResponse;
 
 public interface PaymentService {
 
-  StripePaymentResponse createPayment(PaymentRequest req);
+  StripeResponse createPayment(PaymentRequest req);
 
   String getPaymentDetail(String req);
 
